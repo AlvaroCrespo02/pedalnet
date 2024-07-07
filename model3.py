@@ -111,12 +111,12 @@ class PedalNet(pl.LightningModule):
             self.train_ds,
             shuffle=True,
             batch_size=self.batch_size,
-            num_workers=4,
+            num_workers=8,
         )
 
     def val_dataloader(self):
         return DataLoader(
-            self.valid_ds, batch_size=self.batch_size, num_workers=4
+            self.valid_ds, batch_size=self.batch_size, num_workers=8
         )
 
     def forward(self, x):
