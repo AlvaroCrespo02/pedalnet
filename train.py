@@ -1,4 +1,5 @@
 import pytorch_lightning as pl
+from pytorch_lightning.callbacks import EarlyStopping
 import argparse
 
 from model2 import PedalNet
@@ -14,12 +15,20 @@ def main(args):
         learning_rate=args.learning_rate,
         data=args.data,
     )
-    print(args.gpus)
+
+    early_stop_callback = EarlyStopping(
+        monitor='val_loss',
+        patience=10,
+        verbose=True,
+        mode='min'
+    )
+
     trainer = pl.Trainer(
         max_epochs=args.max_epochs, 
         accelerator="gpu" if args.gpus else "cpu",
         devices=int(args.gpus) if args.gpus else 1,
-        log_every_n_steps=10
+        log_every_n_steps=10,
+        callbacks=[early_stop_callback]
     )
     trainer.fit(model)
 
