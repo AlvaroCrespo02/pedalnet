@@ -4,7 +4,7 @@ from scipy.io import wavfile
 import argparse
 import numpy as np
 
-from model import PedalNet
+from model2 import PedalNet
 
 
 def save(name, data):
