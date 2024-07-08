@@ -2,7 +2,7 @@ import pytorch_lightning as pl
 from pytorch_lightning.callbacks import EarlyStopping
 import argparse
 
-from model2 import PedalNet
+from model3 import PedalNet
 
 
 def main(args):

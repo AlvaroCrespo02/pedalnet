@@ -36,6 +36,6 @@ def test(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--model", default="models/pedalnet.ckpt")
-    parser.add_argument("--data", default="data.pickle")
+    parser.add_argument("--data", default="data_test.pickle")
     args = parser.parse_args()
     test(args)
