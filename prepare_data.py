@@ -34,7 +34,7 @@ if __name__ == "__main__":
     parser.add_argument("in_file")
     parser.add_argument("out_file")
 
-    parser.add_argument("--data", default="data.pickle")
+    parser.add_argument("--data", default="data_test.pickle")
     parser.add_argument("--sample_time", type=float, default=100e-3)
     args = parser.parse_args()
     main(args)
